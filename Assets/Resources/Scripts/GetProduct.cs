@@ -7,6 +7,7 @@ using TMPro;
 public class GetProduct : MonoBehaviour
 {
      public string productID = "";
+     public string prefix = "";
      private Product product;
 
     GameObject energie;
@@ -17,13 +18,13 @@ public class GetProduct : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        energie = GameObject.Find("Nährwert_Energie_value"); 
-        fett = GameObject.Find("Nährwert_Fett_value"); 
-        kohlenhydrat = GameObject.Find("Nährwert_Kohlenhydrat_value"); 
-        eiweiss = GameObject.Find("Nährwert_Eiweiss_value"); 
+        energie = GameObject.Find(prefix + "Nährwert_Energie_value"); 
+        fett = GameObject.Find(prefix + "Nährwert_Fett_value"); 
+        kohlenhydrat = GameObject.Find(prefix + "Nährwert_Kohlenhydrat_value"); 
+        eiweiss = GameObject.Find(prefix + "Nährwert_Eiweiss_value"); 
         //Debug.Log(API.GetProduct("104400100000").id);
         //Debug.Log(API.GetProduct("104400100000").name);
-        Debug.Log("Hallo Welt");
+        Debug.Log(productID);
         product = API.GetProduct(productID);
         Debug.Log(energie.name);
     }

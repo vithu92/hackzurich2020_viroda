@@ -1,16 +1,44 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <QCARConfig>
     <Tracking>
+        <ImageTarget name="Drink.Right" size="0.040000 0.100091"/>
+        <ImageTarget name="Drink.Left" size="0.040000 0.100091"/>
+        <ImageTarget name="Drink.Back" size="0.060000 0.099939"/>
+        <ImageTarget name="Drink.Bottom" size="0.060000 0.039939"/>
+        <ImageTarget name="Drink.Front" size="0.060000 0.099939"/>
+        <ImageTarget name="Drink.Top" size="0.060000 0.039939"/>
+        <ImageTarget name="Jasmin.Right" size="0.060000 0.180164"/>
+        <ImageTarget name="Jasmin.Left" size="0.060000 0.180164"/>
+        <ImageTarget name="Jasmin.Back" size="0.100000 0.180263"/>
+        <ImageTarget name="Jasmin.Bottom" size="0.100000 0.059934"/>
+        <ImageTarget name="Jasmin.Front" size="0.100000 0.180263"/>
+        <ImageTarget name="Jasmin.Top" size="0.100000 0.059934"/>
         <ImageTarget name="Schocko.Right" size="0.010000 0.099636"/>
-        <ImageTarget name="Schocko.Front" size="0.200000 0.100000"/>
         <ImageTarget name="Schocko.Left" size="0.010000 0.099636"/>
         <ImageTarget name="Schocko.Back" size="0.200000 0.100000"/>
+        <ImageTarget name="Schocko.Front" size="0.200000 0.100000"/>
         <ImageTarget name="Reis.Right" size="0.060000 0.179672"/>
-        <ImageTarget name="Reis.Bottom" size="0.100000 0.060000"/>
-        <ImageTarget name="Reis.Top" size="0.100000 0.059934"/>
-        <ImageTarget name="Reis.Front" size="0.100000 0.180263"/>
         <ImageTarget name="Reis.Left" size="0.060000 0.179672"/>
         <ImageTarget name="Reis.Back" size="0.100000 0.180263"/>
+        <ImageTarget name="Reis.Bottom" size="0.100000 0.060000"/>
+        <ImageTarget name="Reis.Front" size="0.100000 0.180263"/>
+        <ImageTarget name="Reis.Top" size="0.100000 0.059934"/>
+        <MultiTarget name="Drink">
+            <Part name="Drink.Left" translation="-0.029999999329447746 0 0" rotation="AD: 0 1 0 -90"/>
+            <Part name="Drink.Right" translation="0.029999999329447746 0 0" rotation="AD: 0 1 0 90"/>
+            <Part name="Drink.Front" translation="0 0 0.019999999552965164" rotation="AD: 1 0 0 0"/>
+            <Part name="Drink.Back" translation="0 0 -0.019999999552965164" rotation="AD: 0 1 0 180"/>
+            <Part name="Drink.Top" translation="0 0.05000000074505806 0" rotation="AD: 1 0 0 -90"/>
+            <Part name="Drink.Bottom" translation="0 -0.05000000074505806 0" rotation="AD: 1 0 0 90"/>
+        </MultiTarget>
+        <MultiTarget name="Jasmin">
+            <Part name="Jasmin.Left" translation="-0.05000000074505806 0 0" rotation="AD: 0 1 0 -90"/>
+            <Part name="Jasmin.Right" translation="0.05000000074505806 0 0" rotation="AD: 0 1 0 90"/>
+            <Part name="Jasmin.Front" translation="0 0 0.029999999329447746" rotation="AD: 1 0 0 0"/>
+            <Part name="Jasmin.Back" translation="0 0 -0.029999999329447746" rotation="AD: 0 1 0 180"/>
+            <Part name="Jasmin.Top" translation="0 0.09000000357627869 0" rotation="AD: 1 0 0 -90"/>
+            <Part name="Jasmin.Bottom" translation="0 -0.09000000357627869 0" rotation="AD: 1 0 0 90"/>
+        </MultiTarget>
         <MultiTarget name="Schocko">
             <Part name="Schocko.Left" translation="-0.10000000149011612 0 0" rotation="AD: 0 1 0 -90"/>
             <Part name="Schocko.Right" translation="0.10000000149011612 0 0" rotation="AD: 0 1 0 90"/>

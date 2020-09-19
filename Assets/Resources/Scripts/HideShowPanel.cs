@@ -15,6 +15,7 @@ public class HideShowPanel : MonoBehaviour
         panel = GameObject.Find("UIPanel");
         thisButton = GetComponent<Button>();
         thisButton.onClick.AddListener(OnClick);
+        panel.SetActive(false);
     }
 
     // Update is called once per frame
