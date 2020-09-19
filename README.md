@@ -18,5 +18,5 @@ We optimized our system to make the most important information instantly availab
 
 ## Further Steps
 We think that given more time our app could be extend with various good additions:
-- Navigation in store to help customers find their products better and faster.
+- Navigation in store to help customers find their products better and faster using the store layout provided by Migros.
 - Direct comparison between products informing the customer about nutritional values and sustainability impact.
