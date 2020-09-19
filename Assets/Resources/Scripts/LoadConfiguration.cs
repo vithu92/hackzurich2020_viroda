@@ -18,13 +18,13 @@ public class LoadConfiguration {
     {
         Debug.Log("Loading api config");
         var Result = (TextAsset)Resources.Load("Configuration/configuration_api");
-        Debug.Log(JsonUtility.FromJson<ApiConfig>(Result.text));
         ApiConfig = JsonUtility.FromJson<ApiConfig>(Result.text);
 
         API.Initialize();
 
         // TESTING
-        Debug.Log(API.GetProduct("120267000000").name);
+        Debug.Log(API.GetProduct("120267000000").nutrition_facts.standard.nutrients[0].name);
+        Debug.Log(API.GetProduct("120267000000").origins.producing_country);
     }
 
 

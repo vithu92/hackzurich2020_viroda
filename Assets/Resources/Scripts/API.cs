@@ -82,6 +82,7 @@ public class Product
 {
     public string id;
     public string language;
+    public string[]  gtin;
 
     public string name;
     public string product_name;
@@ -89,4 +90,95 @@ public class Product
 
     public string slug;
     public string short_description;
+    public string regulated_description;
+
+    public ProductPrice price;
+
+    public NutritionFactMap nutrition_facts;
+
+    public Origins origins;
+}
+
+/// <summary>
+/// ProductPrice class
+/// </summary>
+[System.Serializable]
+public class ProductPrice
+{
+    //public PriceQuantityUnit base;
+}
+
+/// <summary>
+/// PriceQuantityUnit class
+/// </summary>
+[System.Serializable]
+public class PriceQuantityUnit
+{
+    public float price;
+    public float quantity;
+    public string unit;
+    public string display_quantity;
+}
+
+/// <summary>
+/// NutritionFactMap class
+/// </summary>
+[System.Serializable]
+public class NutritionFactMap
+{
+    public NutrientCollection standard;
+    public NutrientCollection portion;
+}
+
+/// <summary>
+/// NutrientCollection class
+/// </summary>
+[System.Serializable]
+public class NutrientCollection
+{
+    public string base_description;
+    public float base_quantity;
+    public string base_quantity_description;
+    public string base_precision;
+    public string base_unit;
+
+    public string package_type;
+    public string portions_per_package;
+    public string portions_per_package_precision;
+
+    public string serving_description;
+    public string service_size_description;
+    public string consumption_hint;
+    public string preparation_state;
+
+    public Nutrient[] nutrients;
+}
+
+/// <summary>
+/// Nutrient class
+/// </summary>
+[System.Serializable]
+public class Nutrient
+{
+    public string code;
+    public string name;
+    public string category;
+    public float quantity;
+
+    public float rda_percent;
+    public string rda_percent_operator;
+
+    public string nutrition_operator;
+    public string quantity_unit;
+}
+
+/// <summary>
+/// Origins class
+/// </summary>
+[System.Serializable]
+public class Origins
+{
+    public string producing_country;
+    public string supplier_country;
+    public string country_of_origin;
 }
