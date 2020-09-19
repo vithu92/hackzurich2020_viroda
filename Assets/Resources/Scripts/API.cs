@@ -39,7 +39,19 @@ public static class API
     {
         string url = GetUrl(product_url, id);
         string result = DownloadString(url);
-        return JsonUtility.FromJson<Product>(result);
+        result = JsonUtility.FromJson<Product>(result);
+
+        // Calculate CO2 Score, Spoofed for PoC values
+        // Risotto Rice
+        if (result.id == ) result.co2_score = 30;
+        // Jasmine Rice
+        if (result.id == ) result.co2_score = 50;
+        // Cooking Chocolate 
+        if (result.id == ) result.co2_score = 70;
+        // else use pseudo-calculation
+        if (result.co2_score == null) result.co2_score = result.calculate_co2();
+
+        return result;
     }
 
     /// <summary>
@@ -99,6 +111,34 @@ public class Product
     public NutritionFactMap nutrition_facts;
 
     public Origins origins;
+
+    public Label[] labels;
+
+    // CO2 Score
+    // Value from 0 to 100
+    public int co2_score;
+
+    // Based on calculation methodology presented by Galaxus
+    // https://www.galaxus.ch/de/page/unser-klima-kompensationsmodell-16329
+    // but change "product group intensity" to "country of origin CO2 intensity"
+    // https://en.wikipedia.org/wiki/Emission_intensity#cite_note-eia_carbon_intensity_data-12
+    public int calculate_co2() 
+    {
+        // get from EIA Data
+        factor_origin_intensity = 25;
+
+        // calculate distance from 0 (local), to 100 (furthest away)
+        factor_distance_origin = 40;
+
+        // calculate factor for "sustainable" labels (10000 -> UTZ ID)
+        factor_label = 1;
+        if (this.labels.contains(new Label(){id = 10000})) factor_label = 0.9;
+
+        result = (factor_origin_intensity + factor_distance_origin) * factor_label;
+
+        if (result > 100) result  = 100;
+        return result;
+    }
 }
 
 /// <summary>
@@ -184,3 +224,19 @@ public class Origins
     public string supplier_country;
     public string country_of_origin;
 }
+
+/// <summary>
+/// Label class
+/// </summary>
+[System.Serializable]
+public class Label
+{
+    public string id;
+    public string name;
+    public string slug;
+
+    public bool Equals(Label other) {
+        return this.id == other.id;
+    }
+}
+
