@@ -6,9 +6,8 @@ using TMPro;
 
 public class GetProduct : MonoBehaviour
 {
-     public enum Characters {Energie, Fett, Eiweiss, Kohlenhydrat};
-    public Characters Character;
-     public Product product;
+     public string productID = "";
+     private Product product;
 
     GameObject energie;
     GameObject fett;
@@ -25,7 +24,7 @@ public class GetProduct : MonoBehaviour
         //Debug.Log(API.GetProduct("104400100000").id);
         //Debug.Log(API.GetProduct("104400100000").name);
         Debug.Log("Hallo Welt");
-        product = API.GetProduct("104400100000");
+        product = API.GetProduct(productID);
         Debug.Log(energie.name);
     }
 

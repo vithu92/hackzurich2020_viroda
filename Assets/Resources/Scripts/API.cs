@@ -43,11 +43,11 @@ public static class API
 
         // Calculate CO2 Score, Spoofed for PoC values
         // Risotto Rice
-        if (result.id == ) result.co2_score = 30;
+        if (result.id =="104400100000") result.co2_score = 30;
         // Jasmine Rice
-        if (result.id == ) result.co2_score = 50;
+        if (result.id == "104402400000") result.co2_score = 50;
         // Cooking Chocolate 
-        if (result.id == ) result.co2_score = 70;
+        if (result.id == "100100500000") result.co2_score = 70;
         // else use pseudo-calculation
         if (result.co2_score == null) result.co2_score = result.calculate_co2();
 
@@ -116,7 +116,7 @@ public class Product
 
     // CO2 Score
     // Value from 0 to 100
-    public int co2_score;
+    public int? co2_score;
 
     // Based on calculation methodology presented by Galaxus
     // https://www.galaxus.ch/de/page/unser-klima-kompensationsmodell-16329
@@ -125,14 +125,14 @@ public class Product
     public int calculate_co2() 
     {
         // get from EIA Data
-        factor_origin_intensity = 25;
+        var factor_origin_intensity = 25;
 
         // calculate distance from 0 (local), to 100 (furthest away)
-        factor_distance_origin = 40;
+        var factor_distance_origin = 40;
 
         // calculate factor for "sustainable" labels (10000 -> UTZ ID)
-        factor_label = 1;
-        if (this.labels.contains(new Label(){id = 10000})) factor_label = 0.9;
+        var factor_label = 1;
+        if (this.labels.contains(new Label(){id = "10000"})) factor_label = 0.9;
 
         result = (factor_origin_intensity + factor_distance_origin) * factor_label;
 
