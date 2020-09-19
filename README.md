@@ -1,6 +1,6 @@
 # Welcome to our HackZurich2020 project on Github. 
 
-We created a power full AR mobile app to help a Migros customer to make better decision and get information more easily when browsing goods at the store.
+We created a power full AR mobile app to help a Migros customer to make better decision and to get to information more easily while browsing goods at the store.
 
 Our system uses image recognition to allow tracking of various goods in 3D space with that we can show a lot of useful additional data without the need to touch a product and read the small prints on the back.
 
@@ -13,5 +13,6 @@ We optimized our system to make the most important information instantly availab
 
 ## Further Steps
 We think that given more time our app could be extend with various good additions:
-- Navigation in store to help customers find their products better and faster using the store layout provided by Migros.
-- Direct comparison between products informing the customer about nutritional values and sustainability impact.
+- Navigation in store to could help the customers find their products better and faster using the store layout provided by Migros.
+- Direct comparison between products could help the customer to be more informed about their choices especially with regard to nutritional values and sustainability impact.
+- With a text to speech and a translation extenstions the app could help blind and international people to find their way around Migros better.
