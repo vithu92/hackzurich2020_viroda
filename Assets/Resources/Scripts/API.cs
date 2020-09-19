@@ -38,8 +38,8 @@ public static class API
     public static Product GetProduct(string id)
     {
         string url = GetUrl(product_url, id);
-        string result = DownloadString(url);
-        result = JsonUtility.FromJson<Product>(result);
+        string response = DownloadString(url);
+        var result = JsonUtility.FromJson<Product>(response);
 
         // Calculate CO2 Score, Spoofed for PoC values
         // Risotto Rice
@@ -131,13 +131,13 @@ public class Product
         var factor_distance_origin = 40;
 
         // calculate factor for "sustainable" labels (10000 -> UTZ ID)
-        var factor_label = 1;
-        if (this.labels.contains(new Label(){id = "10000"})) factor_label = 0.9;
+        double factor_label = 1;
+        if (Array.Exists(this.labels, elem => elem.id == "10000")) factor_label = 0.9;
 
-        result = (factor_origin_intensity + factor_distance_origin) * factor_label;
+        var result = (factor_origin_intensity + factor_distance_origin) * factor_label;
 
         if (result > 100) result  = 100;
-        return result;
+        return (int)Math.Floor(result);
     }
 }
 
