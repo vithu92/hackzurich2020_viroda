@@ -6,7 +6,7 @@ using UnityEngine;
 public class AlwaysFaceCamera : MonoBehaviour
 {
     Camera arCamera;
-
+    GameObject Nährwert;
     // Start is called before the first frame update
     void Start()
     {
