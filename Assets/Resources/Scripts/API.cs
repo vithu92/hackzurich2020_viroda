@@ -51,6 +51,9 @@ public static class API
         // else use pseudo-calculation
         if (result.co2_score == null) result.co2_score = result.calculate_co2();
 
+        // Add healthier alternatives
+        result.getHealthierProduct();
+
         return result;
     }
 
@@ -96,7 +99,7 @@ public class Product
 {
     public string id;
     public string language;
-    public string[]  gtin;
+    public string[] gtin;
 
     public string name;
     public string product_name;
@@ -138,6 +141,32 @@ public class Product
 
         if (result > 100) result  = 100;
         return (int)Math.Floor(result);
+    }
+
+    public int? ofcom_value;
+    public string nutri_score_final;
+    public HealthierProduct alternativeProduct;
+
+    public void getHealthierProduct()
+    {
+        var eatfit_base = "https://eatfit-service.foodcoa.ch/products/";
+        var eatfit_credentials = new CredentialCache
+        {
+            { new Uri(eatfit_base), "Basic", new NetworkCredential("eatfit_hackzurich", "XmU8G2jeAwYzrU9K") }
+        };
+        WebClient WebClient = new WebClient
+        {
+            Credentials = eatfit_credentials
+        };
+
+        // get own nutriscore
+        var wrapper = JsonUtility.FromJson<HealthierProductWrapper>(WebClient.DownloadString(new Uri(eatfit_base + this.gtin[0])));
+        this.ofcom_value = wrapper.products[0].ofcom_value;
+        this.nutri_score_final = wrapper.products[0].nutri_score_final;
+
+        // get better alternatives
+        wrapper = JsonUtility.FromJson<HealthierProductWrapper>(WebClient.DownloadString(new Uri(eatfit_base + "better-products/" + this.gtin[0])));
+        this.alternativeProduct = wrapper.products[0];
     }
 }
 
@@ -240,3 +269,25 @@ public class Label
     }
 }
 
+/// <summary>
+/// HealthierProductWrapper class
+/// </summary>
+[System.Serializable]
+public class HealthierProductWrapper
+{
+    public string success;
+    public HealthierProduct[] products;
+}
+
+/// <summary>
+/// HealthierProduct class
+/// </summary>
+[System.Serializable]
+public class HealthierProduct
+{
+    public string product_name_de;
+    public int ofcom_value;
+    public string nutri_score_final;
+
+    public string image;
+}
