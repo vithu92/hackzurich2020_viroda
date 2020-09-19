@@ -54,6 +54,8 @@ public static class API
             Credentials = credentials
         };
 
+        WebClient.Headers.Add("accept-language", "de");
+
         return WebClient.DownloadString(new Uri(url));
     }
 
