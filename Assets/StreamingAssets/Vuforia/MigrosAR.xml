@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<QCARConfig>
+    <Tracking>
+        <ImageTarget name="Schocko.Right" size="0.010000 0.099636"/>
+        <ImageTarget name="Schocko.Front" size="0.200000 0.100000"/>
+        <ImageTarget name="Schocko.Left" size="0.010000 0.099636"/>
+        <ImageTarget name="Schocko.Back" size="0.200000 0.100000"/>
+        <ImageTarget name="Reis.Right" size="0.060000 0.179672"/>
+        <ImageTarget name="Reis.Bottom" size="0.100000 0.060000"/>
+        <ImageTarget name="Reis.Top" size="0.100000 0.059934"/>
+        <ImageTarget name="Reis.Front" size="0.100000 0.180263"/>
+        <ImageTarget name="Reis.Left" size="0.060000 0.179672"/>
+        <ImageTarget name="Reis.Back" size="0.100000 0.180263"/>
+        <MultiTarget name="Schocko">
+            <Part name="Schocko.Left" translation="-0.10000000149011612 0 0" rotation="AD: 0 1 0 -90"/>
+            <Part name="Schocko.Right" translation="0.10000000149011612 0 0" rotation="AD: 0 1 0 90"/>
+            <Part name="Schocko.Front" translation="0 0 0.004999999888241291" rotation="AD: 1 0 0 0"/>
+            <Part name="Schocko.Back" translation="0 0 -0.004999999888241291" rotation="AD: 0 1 0 180"/>
+        </MultiTarget>
+        <MultiTarget name="Reis">
+            <Part name="Reis.Left" translation="-0.05000000074505806 0 0" rotation="AD: 0 1 0 -90"/>
+            <Part name="Reis.Right" translation="0.05000000074505806 0 0" rotation="AD: 0 1 0 90"/>
+            <Part name="Reis.Front" translation="0 0 0.029999999329447746" rotation="AD: 1 0 0 0"/>
+            <Part name="Reis.Back" translation="0 0 -0.029999999329447746" rotation="AD: 0 1 0 180"/>
+            <Part name="Reis.Top" translation="0 0.09000000357627869 0" rotation="AD: 1 0 0 -90"/>
+            <Part name="Reis.Bottom" translation="0 -0.09000000357627869 0" rotation="AD: 1 0 0 90"/>
+        </MultiTarget>
+    </Tracking>
+</QCARConfig>
