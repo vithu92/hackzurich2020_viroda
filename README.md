@@ -1,6 +1,4 @@
-# HackZurich2020
-
-## Welcome to our HackZurich2020 project on Github. 
+# Welcome to our HackZurich2020 project on Github. 
 
 We created a power full AR mobile app to help a Migros customer to make better decision and get information more easily when browsing goods at the store.
 
